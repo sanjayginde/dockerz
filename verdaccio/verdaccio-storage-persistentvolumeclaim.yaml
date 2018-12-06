@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: storage
-  name: storage
+    io.kompose.service: verdaccio-storage
+  name: verdaccio-storage
 spec:
   accessModes:
   - ReadWriteOnce

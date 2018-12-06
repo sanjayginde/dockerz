@@ -26,10 +26,10 @@ spec:
         resources: {}
         volumeMounts:
         - mountPath: /verdaccio/storage
-          name: storage
+          name: verdaccio-storage
       restartPolicy: Always
       volumes:
-      - name: storage
+      - name: verdaccio-storage
         persistentVolumeClaim:
-          claimName: storage
+          claimName: verdaccio-storage
 status: {}
