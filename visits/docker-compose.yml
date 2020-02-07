@@ -7,4 +7,4 @@ services:
     restart: "no"
     build: .
     ports:
-      - '4001:8081'
+      - '8081:8081'
