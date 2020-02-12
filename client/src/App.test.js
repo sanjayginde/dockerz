@@ -8,8 +8,14 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('renders learn react link', () => {
+test('renders greeting text', () => {
   const { getByText } = render(<App />);
   const linkElement = getByText(/hi/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders feature branch update', () => {
+  const { getByText } = render(<App />);
+  const linkElement = getByText(/feature branch update/i);
   expect(linkElement).toBeInTheDocument();
 });
