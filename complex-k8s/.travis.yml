@@ -1,0 +1,21 @@
+sudo: required # Need super user to run docker
+services:
+  - docker
+
+env:
+  global:
+    - GIT_SHA=$(git rev-parse HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t sanjayginde/complex-k8s-client-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true sanjayginde/complex-k8s-client-test npm run test
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
